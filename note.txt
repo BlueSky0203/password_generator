@@ -1,0 +1,52 @@
+generate password note
+
+步驟一：先將使用者想要的項目添加到摸彩箱中
+1. 建立 generate_password.js 檔案
+2. 定義產生密碼函式
+3. 把解法的步驟寫在函式中
+4. 將使用者所有可能會想放入摸彩箱的項目先準備好
+5. 用假資料來測試函式是否能正確執行
+6. 把使用者想要的項目放入摸彩箱中
+6.1 用 split 方法將字串轉成陣列
+6.2 將多個陣列相連接 - concat 方法
+6.3 將項目放入摸彩箱中
+6.4 測試摸彩箱內容
+
+步驟二：把使用者不想要的項目從摸彩箱中剔除
+將使用者傳來的字串轉換成陣列
+使用 filter 過濾掉使用者不想要的資料
+了解原理後重構程式碼
+
+把不想要的項目過濾
+使用 JavaScript 中字串的 String.prototype.includes() 方法，判斷在我們的摸彩箱內是否有包含使用者不想要的項目。
+使用 JavaScript 中陣列的 Array.prototype.filter() 方法，濾掉使用者不想在密碼中出現的項目。
+
+1. 判斷是否包含特定文字 - includes()
+2. 使用 filter 過濾掉使用者不想要的資料
+
+當options.excludeCharacters.includes(character) 的值是 true ，要回傳 false 給 filter 以剔除項目
+當options.excludeCharacters.includes(character) 的值是 false ，要回傳 true 給 filter 以保留項目
+
+實作產生密碼：步驟三 
+1. 思考如何從陣列中隨機抽取元素
+2. 將隨機抽取陣列元素的方法變成一個函式
+3. 根據使用者期望的密碼長度產生密碼
+
+整合
+1. 修改密碼產生函式，讓他可以被載入 app.js
+2. 載入隨機產生密碼的函式
+3. 根據使用者傳送的表單資料產生隨機密碼
+
+將使用者填寫的資料保留在表單 
+優化項目一：顯示使用者的原本選項
+優化項目二：錯誤訊息
+1. 紀錄使用者前次勾選的項目
+2. 儲存表單資料並傳送到樣板
+3. 根據使用者填寫的資料來決定畫面的呈現
+
+錯誤訊息處理
+1. 思考解決問題的方法
+當使用者沒有勾選任何項目時，等同於在 generate_password.js 這支檔案的模彩箱中沒有放入任何選項，因此 collection 這個變數會是空陣列。
+如果使用者勾選了要數字這個選項，卻又在 excludeCharacters 的欄位中把所有數字都填進去，這就等同於一開始把 numbers 放入摸彩箱中，但後來又把摸彩箱中的所有數字都拿了出來，因此 collection 一樣會變成空陣列。
+2. 實作以 if 撰寫相關判斷式
+如果 collection.length === 0，則表示 collection 是一個空陣列，那麼就回傳錯誤提示 'You must select at least one character set'
