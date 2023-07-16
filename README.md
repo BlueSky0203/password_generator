@@ -1,6 +1,6 @@
 # Password Generator
 
-![image](https://github.com/BlueSky0203/alpha_camp/blob/main/password_generator/picture/password_generator.png)
+![image](https://github.com/BlueSky0203/password_generator/blob/main/picture/password_generator.png)
 
 ## Functions
   - include lowercase letter
